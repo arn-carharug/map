@@ -1,0 +1,345 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <link rel=" stylesheet" href="css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.35, maximum-scale=0.4, user-scalable=no">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.13.0/build/ol.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <header class="header">
+        <title>Sulak Alanlar Envanter Sistemi - Orman ve Su İşleri Bakanlığı</title>
+    </header>
+
+</head>
+
+<body>
+
+
+
+    <div class="box">
+
+        <div id="map" class="map">
+
+
+            <div class="kurumtitle">
+
+
+
+
+
+                <div class="logo-bakanlik"><img src="bakanliklogo.png" /></div>
+
+                <div class="baslik">
+                    <h4 style="text-align:center;">
+                        T.C. Tarım ve Orman Bakanlığı Doğa Koruma ve Milli Parklar Genel Müdürlüğü Ulusal Sulak Alan Envanteri Yönetim Bilgi Sistemi
+                    </h4>
+                </div>
+                <div class="logo-cevre hidden-xs "><img src="doga-koruma.png" /></div>
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+        <script type="text/javascript">
+            var map = new ol.Map({
+                target: 'map',
+                layers: [
+                    new ol.layer.Tile({
+                        source: new ol.source.OSM()
+                    })
+                ],
+                view: new ol.View({
+                    center: ol.proj.fromLonLat([37.41, 8.82]),
+                    zoom: 4
+                })
+            });
+        </script>
+
+    </div>
+
+
+
+
+
+    <div class="row" >
+   
+    <div class="col-md-3 " id="mydiv" style="z-index=0; bottom:0; right:0;">
+      
+    </div>
+    <div class="col-md-3" id="mydiv" style="z-index=0;bottom:0;">
+
+
+        <div class="accordions">
+
+            <div class="accordion">
+
+                <div class="accordion__slot">
+                    <button class="accordion__button" style="backdrop-filter: blur(20px); background-color: rgba(75,53,53, 0.5); "><i class="fa fa-list">Katmanlar</i></button>
+                </div>
+
+                <div class="accordion__slot">
+                    <div class="accordion__panel">
+                        <div class="accordion-panel__content">
+                            <div class="row row-cols-auto" style="bottom:100px;">
+                                <div class="col" style="border-radius:5px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            İller
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-3" style="border-radius:5px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Havzalar
+                                        </label>
+                                    </div>
+
+
+                                </div>
+                                <div class="col" style="border-radius:5px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Ulusal Öneme Haiz Sulak Alanlar
+
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-cols-auto">
+                                <div class="col" style="border-radius:5px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Bölge Mdr
+                                        </label>
+                                    </div>
+
+
+                                </div>
+                                <div class="col" style="border-radius:5px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Ramsar
+                                        </label>
+                                    </div>
+
+
+                                </div>
+
+
+
+
+                                <div class="col" style="border-radius:5px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Mahalli Öneme Haiz Sulak Alanlar
+                                        </label>
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+        <div class="accordions">
+
+
+            <div class="accordion">
+
+
+                <div class="accordion__slot">
+                    <button class="accordion__button"><i class="fa fa-filter">Sulak Alan Sorgulama</i></button>
+                </div>
+
+                <div class="accordion__slot">
+                    <div class="accordion__panel">
+                        <div class="accordion-panel__content">
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="border-radius: 5px; ">
+                                <option selected>Bölge Seçiniz...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="border-radius: 5px; ">
+                                <option selected>Havza Seçiniz...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="border-radius: 5px; ">
+                                <option selected>İl Seçiniz...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="border-radius: 5px; ">
+                                <option selected>Sulak Alan Ana Tipi Seçiniz...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="border-radius: 5px; ">
+                                <option selected>Sulak Alan Alt Tipi Seçiniz...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="border-radius: 5px; ">
+                                <option selected>Alan Büyüklüğü Seçiniz...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="border-radius: 5px; ">
+                                <option selected>Yükseklik Seçiniz...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="border-radius: 5px; ">
+                                <option selected>Tescil Tipi Seçiniz...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <div class="temizle"><button type="button" class="btn btn-info"><i class="fa fa-trash"></i>Temizle</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="accordions">
+
+            <div class="accordion">
+
+
+                <div class="accordion__slot">
+                    <button class="accordion__button" style="background-color: rgba(9,6,7, 0.5); "><i class="fa fa-filter">TKGM Parsel Sorgu</i></button>
+                </div>
+
+                <div class="accordion__slot">
+                    <div class="accordion__panel">
+                        <div class="accordion-panel__content">
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="border-radius: 5px; ">
+                                <option selected>İl Seçiniz...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="border-radius: 5px; ">
+                                <option selected>İlçe Seçiniz...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="border-radius: 5px; ">
+                                <option selected>Mahalle Seçiniz...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+        <div class="menu">
+            <button>Bilgilendirme</button>
+            <button>Sulak Alan Nedir?</button>
+            <button>GİRİŞ</button>
+            <button>YARDIM</button>
+        </div>
+    </div>
+    <script src="js/JavaScript.js"></script>
+
+    <script>
+        //Make the DIV element draggagle:
+        dragElement(document.getElementById("mydiv"));
+
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            if (document.getElementById(elmnt.id + "header")) {
+                /* if present, the header is where you move the DIV from:*/
+                document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+            } else {
+                /* otherwise, move the DIV from anywhere inside the DIV:*/
+                elmnt.onmousedown = dragMouseDown;
+            }
+
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // get the mouse cursor position at startup:
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                // call a function whenever the cursor moves:
+                document.onmousemove = elementDrag;
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // calculate the new cursor position:
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                // set the element's new position:
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+
+            function closeDragElement() {
+                /* stop moving when mouse button is released:*/
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+        }
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
